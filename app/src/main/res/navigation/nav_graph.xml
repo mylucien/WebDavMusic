@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.webdavmusic.ui.home.HomeFragment"
+        android:label="首页">
+        <action
+            android:id="@+id/action_home_to_library"
+            app:destination="@id/libraryFragment"/>
+        <action
+            android:id="@+id/action_home_to_player"
+            app:destination="@id/playerFragment"/>
+        <action
+            android:id="@+id/action_home_to_settings"
+            app:destination="@id/settingsFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.webdavmusic.ui.library.LibraryFragment"
+        android:label="音乐库">
+        <action
+            android:id="@+id/action_library_to_player"
+            app:destination="@id/playerFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.webdavmusic.ui.player.PlayerFragment"
+        android:label="正在播放"/>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.webdavmusic.ui.settings.SettingsFragment"
+        android:label="账户设置"/>
+
+</navigation>

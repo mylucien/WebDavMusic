@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.WebDavMusic" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorError">@color/error</item>
+
+        <!-- TV: make focus rings visible -->
+        <item name="android:focusableInTouchMode">false</item>
+    </style>
+
+    <!-- TV-specific overlay: larger touch targets, visible D-pad focus -->
+    <style name="Theme.WebDavMusic.TV" parent="Theme.WebDavMusic">
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>
