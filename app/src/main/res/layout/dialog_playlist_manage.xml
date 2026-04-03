@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="24dp" android:background="@color/surface">
+
+    <TextView android:id="@+id/tv_title"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textSize="18sp" android:textStyle="bold"
+        android:textColor="@color/on_surface" android:layout_marginBottom="20dp"/>
+
+    <!-- Main action buttons -->
+    <LinearLayout android:id="@+id/buttons_container"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btn_play"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:text="▶  播放全部" android:textSize="16sp"
+            android:layout_marginBottom="8dp" android:focusable="true"
+            style="@style/Widget.Material3.Button"/>
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btn_rename"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:text="✏️  重命名" android:textSize="16sp"
+            android:layout_marginBottom="8dp" android:focusable="true"
+            style="@style/Widget.Material3.Button.OutlinedButton"/>
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btn_clear"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:text="🗑  清空歌曲" android:textSize="16sp"
+            android:layout_marginBottom="8dp" android:focusable="true"
+            style="@style/Widget.Material3.Button.OutlinedButton"/>
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btn_delete"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:text="❌  删除播放列表" android:textSize="16sp" android:focusable="true"
+            style="@style/Widget.Material3.Button.OutlinedButton"/>
+    </LinearLayout>
+
+    <!-- Rename input (hidden by default) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="新名称" android:visibility="gone"
+        android:layout_marginBottom="12dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_playlist_name"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="text" android:imeOptions="actionDone"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout android:id="@+id/confirm_buttons"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:visibility="gone">
+        <com.google.android.material.button.MaterialButton android:id="@+id/btn_cancel"
+            android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1"
+            android:text="取消" android:layout_marginEnd="8dp" android:focusable="true"
+            style="@style/Widget.Material3.Button.OutlinedButton"/>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btn_confirm"
+            android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1"
+            android:text="确定" android:focusable="true"
+            style="@style/Widget.Material3.Button"/>
+    </LinearLayout>
+</LinearLayout>

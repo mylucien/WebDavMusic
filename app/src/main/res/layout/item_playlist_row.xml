@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="68dp"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:paddingHorizontal="16dp" android:background="@drawable/bg_song_row"
+    android:focusable="true" android:focusableInTouchMode="false" android:clickable="true">
+
+    <ImageView android:layout_width="38dp" android:layout_height="38dp"
+        android:src="@drawable/ic_playlist" android:layout_marginEnd="16dp"/>
+
+    <TextView android:id="@+id/tv_playlist_name"
+        android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:textSize="16sp" android:textStyle="bold"
+        android:maxLines="1" android:ellipsize="end" android:textColor="@color/on_surface"/>
+
+    <TextView android:id="@+id/tv_playlist_badge"
+        android:layout_width="wrap_content" android:layout_height="26dp"
+        android:gravity="center" android:paddingHorizontal="10dp"
+        android:textSize="11sp" android:textColor="@color/primary"
+        android:background="@drawable/bg_format_badge"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- Long-press hint icon -->
+    <ImageView android:layout_width="28dp" android:layout_height="28dp"
+        android:src="@drawable/ic_more_vert" android:alpha="0.5"
+        android:focusable="false"/>
+</LinearLayout>

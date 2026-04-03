@@ -1,0 +1,59 @@
+# Dockerfile for building WebDavMusic APK
+# Usage: docker build -t webdav-music-builder -f Dockerfile.build .
+#        docker run --rm -v $(pwd)/output:/output webdav-music-builder
+
+FROM ubuntu:22.04
+
+# Set non-interactive mode for apt
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    openjdk-17-jdk \
+    wget \
+    unzip \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set environment variables
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV ANDROID_HOME=/opt/android-sdk
+ENV PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools
+
+# Download and install Android SDK command-line tools
+RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
+    wget -q https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O /tmp/cmdline-tools.zip && \
+    unzip -q /tmp/cmdline-tools.zip -d ${ANDROID_HOME}/cmdline-tools && \
+    mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest && \
+    rm /tmp/cmdline-tools.zip
+
+# Accept Android SDK licenses
+RUN yes | sdkmanager --licenses || true
+
+# Install required SDK components
+RUN sdkmanager "platforms;android-34" "build-tools;34.0.0"
+
+# Set working directory
+WORKDIR /build
+
+# Copy project files
+COPY . /build/
+
+# Make setup script executable
+RUN chmod +x setup.sh gradlew
+
+# Download gradle wrapper
+RUN ./setup.sh || true
+
+# Build APK
+RUN ./gradlew assembleDebug --no-daemon --stacktrace
+
+# Create output directory and copy APKs
+RUN mkdir -p /output && \
+    cp -r app/build/outputs/apk/debug/*.apk /output/ 2>/dev/null || \
+    cp -r app/build/outputs/apk/release/*.apk /output/ 2>/dev/null || \
+    echo "No APK found"
+
+# Set default command
+CMD ["cp", "-r", "/build/app/build/outputs/apk/", "/output/"]

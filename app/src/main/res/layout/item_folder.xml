@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="64dp"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:paddingHorizontal="16dp" android:background="@drawable/bg_song_row"
+    android:focusable="true" android:focusableInTouchMode="false" android:clickable="true">
+    <ImageView android:id="@+id/iv_folder_icon"
+        android:layout_width="36dp" android:layout_height="36dp"
+        android:src="@drawable/ic_folder" android:layout_marginEnd="16dp"/>
+    <TextView android:id="@+id/tv_folder_name"
+        android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:textSize="15sp" android:textStyle="bold"
+        android:maxLines="1" android:ellipsize="end" android:textColor="@color/on_surface"/>
+    <CheckBox android:id="@+id/cb_folder"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:focusable="false"/>
+    <ImageView android:id="@+id/iv_chevron"
+        android:layout_width="24dp" android:layout_height="24dp"
+        android:src="@drawable/ic_chevron_right" android:alpha="0.5"
+        android:layout_marginStart="8dp" android:visibility="gone"/>
+</LinearLayout>

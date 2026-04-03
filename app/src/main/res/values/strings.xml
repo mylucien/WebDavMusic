@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WebDAV Music</string>
+    <string name="no_track">未选择歌曲</string>
+    <string name="songs_count">%d 首歌曲</string>
+</resources>

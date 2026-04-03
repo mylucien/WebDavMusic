@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- D-pad focused: left purple bar + border -->
+    <item android:state_focused="true" android:state_pressed="false">
+        <layer-list>
+            <item><shape><solid android:color="#1A6750A4"/></shape></item>
+            <item android:left="0dp" android:right="0dp" android:top="0dp" android:bottom="0dp">
+                <shape>
+                    <stroke android:width="2dp" android:color="#FF6750A4"/>
+                    <solid android:color="#00000000"/>
+                </shape>
+            </item>
+            <!-- Left accent bar -->
+            <item android:right="0dp" android:top="0dp" android:bottom="0dp" android:left="0dp"
+                android:width="4dp">
+                <shape><solid android:color="#FF6750A4"/></shape>
+            </item>
+        </layer-list>
+    </item>
+    <!-- Selected (now-playing) -->
+    <item android:state_selected="true">
+        <layer-list>
+            <item><shape><solid android:color="#156750A4"/></shape></item>
+            <item android:width="4dp">
+                <shape><solid android:color="#FF6750A4"/></shape>
+            </item>
+        </layer-list>
+    </item>
+    <!-- Pressed -->
+    <item android:state_pressed="true">
+        <shape><solid android:color="#2A6750A4"/></shape>
+    </item>
+    <!-- Default -->
+    <item><shape><solid android:color="#00000000"/></shape></item>
+</selector>
