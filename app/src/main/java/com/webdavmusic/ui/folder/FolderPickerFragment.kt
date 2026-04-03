@@ -137,7 +137,7 @@ class FolderPickerFragment : BottomSheetDialogFragment() {
     }
 
     private fun selectAll() {
-        val items = adapter.currentList()
+        val items = adapter.currentList
         if (selectedPaths.size == items.size) {
             selectedPaths.clear()
         } else {
@@ -179,18 +179,13 @@ class FolderAdapter(
     private val selected:   Set<String>
 ) : ListAdapter<BrowseItem, FolderAdapter.VH>(DIFF) {
 
-    private var items = listOf<BrowseItem>()
-
     override fun onCreateViewHolder(p: ViewGroup, t: Int) = VH(
         LayoutInflater.from(p.context).inflate(R.layout.item_folder, p, false)
     )
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = currentList.size
 
-    override fun onBindViewHolder(h: VH, pos: Int) = h.bind(items[pos])
-
-    fun submitList(list: List<BrowseItem>) { items = list; notifyDataSetChanged() }
-    fun currentList() = items
+    override fun onBindViewHolder(h: VH, pos: Int) = h.bind(getItem(pos))
 
     inner class VH(v: View) : RecyclerView.ViewHolder(v) {
         private val icon:    ImageView = v.findViewById(R.id.iv_folder_icon)
