@@ -214,7 +214,8 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:textSize="15sp" android:textStyle="bold"
                 android:maxLines="1" android:ellipsize="marquee"
-                android:marqueeRepeatLimit="marquee_forever" android:selected="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:focusable="true" android:focusableInTouchMode="true"
                 android:textColor="@color/on_now_playing"/>
             <TextView android:id="@+id/tv_bar_artist"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
